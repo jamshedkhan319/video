@@ -1,3 +1,4 @@
+/* General Styles */
 body {
     font-family: Arial, sans-serif;
     margin: 0;
@@ -5,79 +6,108 @@ body {
     background-color: #f3f3f3;
 }
 
-.list-container {
-    max-width: 800px;
+.container {
+    display: flex;
+    flex-direction: column;
+    max-width: 900px;
     margin: 20px auto;
-    padding: 10px;
     background: #fff;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     border-radius: 8px;
+    overflow: hidden;
+    height: 100vh; /* Full viewport height */
 }
 
-.video-item {
-    margin-bottom: 20px;
-    padding-bottom: 10px;
+/* Main Video Player Styles */
+.main-video {
+    position: sticky;
+    top: 0;
+    background: #fff;
+    z-index: 10;
+    padding: 10px;
+    border-bottom: 2px solid #eaeaea;
 }
 
-.video-title {
-    font-size: 18px;
-    font-weight: bold;
-    margin-bottom: 10px;
-}
-
-.video-player video {
+.main-video video {
     width: 100%;
     border-radius: 8px;
-    display: block;
-    outline: none;
 }
 
-.controls {
+.video-info {
+    margin-top: 10px;
+    text-align: left;
+}
+
+.video-info h2 {
+    font-size: 22px;
+    font-weight: bold;
+    color: #333;
+    margin: 5px 0;
+}
+
+.video-info p {
+    font-size: 16px;
+    color: #555;
+}
+
+/* Scrollable Video List Styles */
+.video-list {
+    flex-grow: 1;
+    overflow-y: auto;
+    padding: 10px;
+}
+
+.video-list::-webkit-scrollbar {
+    width: 6px;
+}
+
+.video-list::-webkit-scrollbar-thumb {
+    background-color: #888;
+    border-radius: 4px;
+}
+
+.video-list::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+
+#video-items {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+#video-items li {
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    margin-top: 8px;
-}
-
-.controls button {
-    background: transparent;
-    border: none;
+    padding: 15px;
+    margin-bottom: 15px;
+    background: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 8px;
     cursor: pointer;
+    transition: background 0.3s ease;
 }
 
-.controls .icon-btn {
-    background: none;
-    border: none;
-    cursor: pointer;
-    padding: 5px;
+#video-items li:hover {
+    background: #f0f0f0;
 }
 
-.controls .icon {
-    width: 20px;
-    height: 20px;
-    fill: #007BFF;
+#video-items canvas {
+    width: 150px;
+    height: 90px;
+    margin-right: 20px;
+    border-radius: 8px;
+    background: #000;
 }
 
-.progress-container {
-    flex: 1;
-    height: 6px;
-    background: #ddd;
-    border-radius: 3px;
-    margin: 0 10px;
-    position: relative;
-    cursor: pointer;
+.video-details h4 {
+    margin: 0;
+    font-size: 18px;
+    color: #333;
 }
 
-.progress-bar {
-    width: 0%;
-    height: 100%;
-    background: #007BFF;
-    border-radius: 3px;
-    transition: width 0.1s linear;
-}
-
-.controls span {
-    color: #555;
-    font-size: 14px;
-    text-align: center;
+.video-details p {
+    margin: 8px 0 0;
+    font-size: 15px;
+    color: #666;
 }
