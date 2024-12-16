@@ -69,7 +69,7 @@ header {
 
 /* Main Video Player Styles */
 .container {
-    max-width: 900px;
+    max-width: 500px;
     margin: 0 auto;
     display: flex;
     flex-direction: column;
