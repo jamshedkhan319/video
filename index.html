@@ -11,7 +11,7 @@
     <header>
         <div class="site-logo">
             <img src="play1.png" alt="Logo" class="logo">
-            <h1 class="site-title">JK TUBE </h1>
+            <h1 class="site-title">JK TUBE</h1>
         </div>
         <div class="search-bar">
             <input 
@@ -27,42 +27,19 @@
         <!-- Main Video Player -->
         <div class="main-video hidden" id="main-video-container">
             <video id="main-video" controls>
-                <source src="arabic1.mp4" type="video/mp4">
+                <source src="" type="video/mp4">
                 Your browser does not support the video tag.
             </video>
             <div class="video-info">
-                <h2 id="video-title">Playing: Video 1</h2>
-                <p id="video-description">This is the description of Video 1.</p>
+                <h2 id="video-title">Playing: </h2>
+                <p id="video-description"></p>
             </div>
         </div>
 
         <!-- Video List -->
         <div class="video-list">
             <ul id="video-items">
-                <li data-title="Video 1" data-description="Short description of Video 1"
-                    onclick="playVideo('arabi.mp4', 'ARABIC SONG', 'This is Arabia Best Song.')">
-                    <canvas data-video="arabi.mp4"></canvas>
-                    <div class="video-details">
-                        <h4>ARABIC SONG</h4>
-                        <p>This is Arabia Best Song</p>
-                    </div>
-                </li>
-                <li data-title="Video 2" data-description="Short description of Video 2"
-                    onclick="playVideo('arabic1.mp4', 'Arabic Tune', 'The best arabia song')">
-                    <canvas data-video="arabic1.mp4"></canvas>
-                    <div class="video-details">
-                        <h4>Arabic Tune</h4>
-                        <p>The best arabic song</p>
-                    </div>
-                </li>
-                <li data-title="Video 3" data-description="Short description of Video 3"
-                    onclick="playVideo('test.mp4', 'Video 3', 'This is the description of Video 3.')">
-                    <canvas data-video="test.mp4"></canvas>
-                    <div class="video-details">
-                        <h4>Video 3</h4>
-                        <p>Short description of Video 3</p>
-                    </div>
-                </li>
+                <!-- Video list will be dynamically generated -->
             </ul>
         </div>
     </div>
