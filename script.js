@@ -18,9 +18,23 @@ const videos = [
 
 
     {
-        src: "test.mp4",
+        src: "arabic1.mp4",
         title: "Video 00003",
         description: "This is ption of Video 3."
+    },
+
+
+    {
+        src: "arabic1.mp4",
+        title: "Video 3",
+        description: "This is the description of Video 3."
+    },
+
+    {
+        src: "arabic1.mp4",
+        title: "Video 3",
+        description: "This is the description of Video 3."
+
     }
 
     
