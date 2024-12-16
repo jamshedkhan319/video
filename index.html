@@ -3,94 +3,48 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Video List with Thumbnails</title>
+    <title>Fixed Player with Scrollable Video List</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div class="list-container">
-        <!-- Video Items -->
-        <div class="video-item">
-            <div class="video-title">Arabic Remix best Song</div>
-            <div class="video-player">
-                <video id="video-1" src="arabi.mp4" poster="thumb1.jpg"></video>
-            </div>
-            <div class="controls">
-                <button class="play-btn" onclick="togglePlay('video-1')">▶</button>
-                <div class="progress-container" onclick="seekVideo(event, 'video-1')">
-                    <div class="progress-bar" id="progress-1"></div>
-                </div>
-                <span id="time-1">00:00 / 00:00</span>
-                <button class="icon-btn" onclick="downloadVideo('video1.mp4')">🔗</button>
-                <button class="icon-btn" onclick="shareVideo('video1.mp4')">📥</button>
+    <div class="container">
+        <!-- Main Video Player -->
+        <div class="main-video">
+            <video id="main-video" controls>
+                <source src="video1.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+            <div class="video-info">
+                <h2 id="video-title">Select a video to play</h2>
+                <p id="video-description">Click on a video from the list below to see its details here.</p>
             </div>
         </div>
 
-        <!-- Video 2 -->
-        <div class="video-item">
-            <div class="video-title">Tune Arabbic Song</div>
-            <div class="video-player">
-                <video id="video-2" src="arabic1.mp4" poster="thumb2.jpg"></video>
-            </div>
-            <div class="controls">
-                <button class="play-btn" onclick="togglePlay('video-2')">▶</button>
-                <div class="progress-container" onclick="seekVideo(event, 'video-2')">
-                    <div class="progress-bar" id="progress-2"></div>
-                </div>
-                <span id="time-2">00:00 / 00:00</span>
-                <button class="icon-btn" onclick="downloadVideo('video2.mp4')">📥</button>
-                <button class="icon-btn" onclick="shareVideo('video2.mp4')">🔗</button>
-            </div>
-        </div>
-
-        <!-- Video 3 -->
-        <div class="video-item">
-            <div class="video-title">গাটি সরিসার তেল</div>
-            <div class="video-player">
-                <video id="video-3" src="test.mp4" poster="thumb3.jpg"></video>
-            </div>
-            <div class="controls">
-                <button class="play-btn" onclick="togglePlay('video-3')">▶</button>
-                <div class="progress-container" onclick="seekVideo(event, 'video-3')">
-                    <div class="progress-bar" id="progress-3"></div>
-                </div>
-                <span id="time-3">00:00 / 00:00</span>
-                <button class="icon-btn" onclick="downloadVideo('video3.mp4')">📥</button>
-                <button class="icon-btn" onclick="shareVideo('video3.mp4')">🔗</button>
-            </div>
-        </div>
-
-        <!-- Video 4 -->
-        <div class="video-item">
-            <div class="video-title">Video 4</div>
-            <div class="video-player">
-                <video id="video-4" src="test.mp4" poster="thumb4.jpg"></video>
-            </div>
-            <div class="controls">
-                <button class="play-btn" onclick="togglePlay('video-4')">▶</button>
-                <div class="progress-container" onclick="seekVideo(event, 'video-4')">
-                    <div class="progress-bar" id="progress-4"></div>
-                </div>
-                <span id="time-4">00:00 / 00:00</span>
-                <button class="icon-btn" onclick="downloadVideo('video4.mp4')">📥</button>
-                <button class="icon-btn" onclick="shareVideo('video4.mp4')">🔗</button>
-            </div>
-        </div>
-
-        <!-- Video 5 -->
-        <div class="video-item">
-            <div class="video-title">Video 5</div>
-            <div class="video-player">
-                <video id="video-5" src="video5.mp4" poster="thumb5.jpg"></video>
-            </div>
-            <div class="controls">
-                <button class="play-btn" onclick="togglePlay('video-5')">▶</button>
-                <div class="progress-container" onclick="seekVideo(event, 'video-5')">
-                    <div class="progress-bar" id="progress-5"></div>
-                </div>
-                <span id="time-5">00:00 / 00:00</span>
-                <button class="icon-btn" onclick="downloadVideo('video5.mp4')">📥</button>
-                <button class="icon-btn" onclick="shareVideo('video5.mp4')">🔗</button>
-            </div>
+        <!-- Scrollable Video List -->
+        <div class="video-list">
+            <ul id="video-items">
+                <li onclick="changeVideo('video1.mp4', 'Video 1', 'This is the description of Video 1.')">
+                    <canvas data-video="video1.mp4"></canvas>
+                    <div class="video-details">
+                        <h4>Video 1</h4>
+                        <p>Short description of Video 1</p>
+                    </div>
+                </li>
+                <li onclick="changeVideo('video2.mp4', 'Video 2', 'This is the description of Video 2.')">
+                    <canvas data-video="video2.mp4"></canvas>
+                    <div class="video-details">
+                        <h4>Video 2</h4>
+                        <p>Short description of Video 2</p>
+                    </div>
+                </li>
+                <li onclick="changeVideo('video3.mp4', 'Video 3', 'This is the description of Video 3.')">
+                    <canvas data-video="video3.mp4"></canvas>
+                    <div class="video-details">
+                        <h4>Video 3</h4>
+                        <p>Short description of Video 3</p>
+                    </div>
+                </li>
+            </ul>
         </div>
     </div>
 
