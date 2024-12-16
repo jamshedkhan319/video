@@ -1,69 +1,34 @@
-const videos = document.querySelectorAll("video");
+// Function to change the main video and update details
+function changeVideo(videoSrc, title, description) {
+    const mainVideo = document.getElementById("main-video");
+    const videoTitle = document.getElementById("video-title");
+    const videoDescription = document.getElementById("video-description");
 
-// Play/Pause toggle
-function togglePlay(videoId) {
-    const video = document.getElementById(videoId);
-    const playButton = video.closest(".video-item").querySelector(".play-btn");
+    // Update video source and details
+    mainVideo.src = videoSrc;
+    videoTitle.textContent = title;
+    videoDescription.textContent = description;
 
-    videos.forEach((vid) => {
-        if (vid !== video) {
-            vid.pause();
-            vid.closest(".video-item").querySelector(".play-btn").textContent = "▶";
-        }
-    });
-
-    if (video.paused) {
-        video.play();
-        playButton.textContent = "❚❚";
-    } else {
-        video.pause();
-        playButton.textContent = "▶";
-    }
+    // Play the selected video
+    mainVideo.play();
 }
 
-// Update time and progress bar
-videos.forEach((video) => {
-    video.addEventListener("timeupdate", () => {
-        const timeDisplay = video.closest(".video-item").querySelector("span");
-        const progressBar = video.closest(".video-item").querySelector(".progress-bar");
+// Generate thumbnails dynamically
+document.addEventListener("DOMContentLoaded", () => {
+    const canvases = document.querySelectorAll("canvas[data-video]");
 
-        const currentTime = formatTime(video.currentTime);
-        const duration = formatTime(video.duration);
+    canvases.forEach((canvas) => {
+        const videoSrc = canvas.getAttribute("data-video");
+        const video = document.createElement("video");
 
-        timeDisplay.textContent = `${currentTime} / ${duration}`;
-        progressBar.style.width = `${(video.currentTime / video.duration) * 100}%`;
+        video.src = videoSrc;
+        video.currentTime = 5; // Capture the thumbnail at 5 seconds
+
+        video.addEventListener("loadeddata", () => {
+            const ctx = canvas.getContext("2d");
+            canvas.width = video.videoWidth / 4; // Adjust thumbnail size
+            canvas.height = video.videoHeight / 4;
+            ctx.drawImage(video, 0, 0, canvas.width, canvas.height);
+        });
     });
 });
-
-// Seek video on progress bar click
-function seekVideo(event, videoId) {
-    const video = document.getElementById(videoId);
-    const progressContainer = video.closest(".video-item").querySelector(".progress-container");
-    const progressWidth = progressContainer.offsetWidth;
-    const clickX = event.offsetX;
-
-    video.currentTime = (clickX / progressWidth) * video.duration;
-}
-
-// Format time in MM:SS
-function formatTime(seconds) {
-    const mins = Math.floor(seconds / 60);
-    const secs = Math.floor(seconds % 60);
-    return `${mins.toString().padStart(2, "0")}:${secs.toString().padStart(2, "0")}`;
-}
-
-// Download video
-function downloadVideo(videoSrc) {
-    const a = document.createElement("a");
-    a.href = videoSrc;
-    a.download = videoSrc;
-    a.click();
-}
-
-// Share video
-function shareVideo(videoSrc) {
-    const url = `${window.location.origin}/${videoSrc}`;
-    navigator.clipboard.writeText(url).then(() => {
-        alert("Video link copied to clipboard!");
-    });
-}
