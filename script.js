@@ -1,3 +1,59 @@
+// Video Data Array
+const videos = [
+    {
+        src: "arabic1.mp4",
+        title: "ARABIC SONG",
+        description: "This is the description of Video 1."
+    },
+    {
+        src: "arabi.mp4",
+        title: "ARABIC BEST SONG",
+        description: "This is the description of Video 2."
+    },
+    {
+        src: "test.mp4",
+        title: "Video 3",
+        description: "This is the description of Video 3."
+    }
+];
+
+// Function to dynamically generate the video list
+function generateVideoList() {
+    const videoItems = document.getElementById("video-items");
+    videoItems.innerHTML = ""; // Clear any existing items
+
+    videos.forEach((video) => {
+        const li = document.createElement("li");
+        li.dataset.title = video.title;
+        li.dataset.description = video.description;
+        li.onclick = () => {
+            clearSearch(); // Clear search input on click
+            playVideo(video.src, video.title, video.description);
+        };
+
+        const canvas = document.createElement("canvas");
+        canvas.dataset.video = video.src;
+
+        const videoDetails = document.createElement("div");
+        videoDetails.classList.add("video-details");
+
+        const title = document.createElement("h4");
+        title.textContent = video.title;
+
+        const description = document.createElement("p");
+        description.textContent = video.description;
+
+        videoDetails.appendChild(title);
+        videoDetails.appendChild(description);
+        li.appendChild(canvas);
+        li.appendChild(videoDetails);
+
+        videoItems.appendChild(li);
+    });
+
+    generateThumbnails();
+}
+
 // Function to show video player and play video
 function playVideo(videoSrc, title, description) {
     const mainVideoContainer = document.getElementById("main-video-container");
@@ -20,22 +76,28 @@ function playVideo(videoSrc, title, description) {
 // Function to filter videos
 function searchVideos() {
     const query = document.getElementById("search-input").value.toLowerCase();
-    const videos = document.querySelectorAll("#video-items li");
+    const videoItems = document.querySelectorAll("#video-items li");
 
-    videos.forEach((video) => {
-        const title = video.getAttribute("data-title").toLowerCase();
-        const description = video.getAttribute("data-description").toLowerCase();
+    videoItems.forEach((item) => {
+        const title = item.dataset.title.toLowerCase();
+        const description = item.dataset.description.toLowerCase();
 
         if (title.includes(query) || description.includes(query)) {
-            video.style.display = "block";
+            item.style.display = "block";
         } else {
-            video.style.display = "none";
+            item.style.display = "none";
         }
     });
 }
 
-// Generate thumbnails dynamically
-document.addEventListener("DOMContentLoaded", () => {
+// Function to clear search input
+function clearSearch() {
+    document.getElementById("search-input").value = ""; // Clear the search input
+    searchVideos(); // Reset the video list to show all items
+}
+
+// Function to generate thumbnails dynamically
+function generateThumbnails() {
     const canvases = document.querySelectorAll("canvas[data-video]");
 
     canvases.forEach((canvas) => {
@@ -52,4 +114,7 @@ document.addEventListener("DOMContentLoaded", () => {
             ctx.drawImage(video, 0, 0, canvas.width, canvas.height);
         });
     });
-});
+}
+
+// Initialize the video list on page load
+document.addEventListener("DOMContentLoaded", generateVideoList);
