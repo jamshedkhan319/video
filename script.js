@@ -3,7 +3,7 @@ const videos = [
     {
         src: "arabic1.mp4",
         title: "ARABIC SONG",
-        description: "This is the description of Video 1."
+        description: "This is t of arabic 1."
     },
     {
         src: "arabi.mp4",
@@ -15,7 +15,6 @@ const videos = [
         title: "Video 3",
         description: "This is the description of Video 3."
     },
-
 
     {
         src: "arabic1.mp4",
@@ -33,7 +32,7 @@ const videos = [
     {
         src: "arabic1.mp4",
         title: "Video 3",
-        description: "This is the description of Video 3."
+        description: "This is the deion of Video 3."
 
     }
 
