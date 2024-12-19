@@ -2,7 +2,7 @@
 const videos = [
     {
         src: "oma.mp4",
-        title: "ARABIC SONG",
+        title: "QURAN ",
         description: "This is t of arabic 1."
     },
     {
