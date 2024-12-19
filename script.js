@@ -6,33 +6,33 @@ const videos = [
         description: "This is t of arabic 1."
     },
     {
-        src: "yanoon.mp4",
+        src: "yanoor.mp4",
         title: "ARABIC BEST SONG",
-        description: "This is the description of Video 2."
+        description: "This is the ."
     },
     {
         src: "rahman.mp4",
         title: "Video 3",
-        description: "This is the description of Video 3."
+        description: "This is the description."
     },
 
     {
         src: "monajat.mp4",
         title: "Video 00003",
-        description: "This is ption of Video 3."
+        description: "This is ption ."
     },
 
 
     {
         src: "arabic1.mp4",
         title: "Video 3",
-        description: "This is the description of Video 3."
+        description: "This is the description."
     },
 
     {
         src: "arabi1.mp4",
         title: "Video 3",
-        description: "This is the deion of Video 3."
+        description: "This is the deion of 3."
 
     },
 
@@ -40,7 +40,7 @@ const videos = [
     {
         src: "test.mp4",
         title: "Video 3",
-        description: "This is the deion of Video 3."
+        description: "This is the deion of."
 
     }
 
