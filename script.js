@@ -11,13 +11,13 @@ const videos = [
         description: "This is the description of Video 2."
     },
     {
-        src: "arabic1.mp4",
+        src: "rahman.mp4",
         title: "Video 3",
         description: "This is the description of Video 3."
     },
 
     {
-        src: "arabi1.mp4",
+        src: "monajat.mp4",
         title: "Video 00003",
         description: "This is ption of Video 3."
     },
@@ -28,6 +28,14 @@ const videos = [
         title: "Video 3",
         description: "This is the description of Video 3."
     },
+
+    {
+        src: "arabi1.mp4",
+        title: "Video 3",
+        description: "This is the deion of Video 3."
+
+    },
+
 
     {
         src: "test.mp4",
