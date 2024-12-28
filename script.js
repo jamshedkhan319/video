@@ -42,8 +42,22 @@ const videos = [
         title: "Video 3",
         description: "This is the deion of."
 
-    }
+    },
+    
+{
+        src: "jkv6.mp4",
+        title: "Video 3",
+        description: "This is the deion of."
+},
 
+{
+        src: "jkv7.mp4",
+        title: "Video 3",
+        description: "This is the deion of."
+}
+
+
+    
     
 ];
 
