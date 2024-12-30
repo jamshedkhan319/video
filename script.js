@@ -46,15 +46,23 @@ const videos = [
     
 {
         src: "jkv6.mp4",
-        title: "Video 3",
+        title: "mostofa",
         description: "This is the deion of."
 },
 
 {
         src: "jkv7.mp4",
-        title: "Video 3",
+        title: "rohman",
         description: "This is the deion of."
-}
+},
+    {
+
+       src: "jkv8.mp4",
+        title: "jk",
+        description: "This is the deion of."
+
+
+    }
 
 
     
