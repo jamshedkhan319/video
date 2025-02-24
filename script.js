@@ -39,7 +39,7 @@ const videos = [
 
     {
         src: "koi.mp4",
-        title: "Video 3",
+        title: "koi na sath",
         description: "This is the deion of."
 
     },
