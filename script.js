@@ -69,7 +69,16 @@ const videos = [
         title: "koi na sath",
         description: "hindi rab s"
 
+    },
+
+    {
+        src: "oo.mp4",
+        title: "Jamanul",
+        description: "Jamanul s"
+
     }
+    
+            
     
             
 
